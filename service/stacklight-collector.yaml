@@ -41,6 +41,7 @@ service:
         command: snapd --config /etc/snap/snap.conf
         files:
           - snap.conf
+          - snap-heka-mappings.json
           - snap-task.json
       volumes:
         - name: proc
@@ -103,6 +104,10 @@ files:
     path: /etc/snap/snap.conf
     content: snap.conf.j2
     perm: "0600"
+  snap-heka-mappings.json:
+    path: /etc/snap/snap-heka-mappings.json
+    content: snap-heka-mappings.json
+    perm: "0644"
   snap-task.json:
     path: /etc/snap/auto/task.json
     content: snap-task.json.j2

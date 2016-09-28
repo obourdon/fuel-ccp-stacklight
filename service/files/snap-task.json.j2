@@ -11,6 +11,9 @@
           "/intel": {
               "proc_path":  "/host-proc"
           },
+          "/intel/procfs/filesystem": {
+              "keep_original_mountpoint":  true
+          },
           "/intel/disk": {
               "dev_path":  "/host-dev"
           }
@@ -100,7 +103,8 @@
         "plugin_name": "heka",
         "config": {
           "host": "localhost",
-          "port": {{ hindsight_heka_tcp_port }}
+          "port": {{ hindsight_heka_tcp_port }},
+          "mappings-file": "/etc/snap/snap-heka-mappings.json"
         }
       }]
     }
